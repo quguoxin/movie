@@ -11,7 +11,10 @@ public class ViewController {
     public String toView(String vn){
         if(vn.equals("insurance")){
             return "insurance";
+        }if(vn.equals("userInfo")){
+            return "userInfo";
         }
+
         return "";
     }
 
