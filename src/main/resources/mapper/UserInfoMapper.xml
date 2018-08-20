@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--定义命名空间-->
+<mapper namespace="com.movie.www.mapper.UserInfoMapper">
+    <!--id：属性等价于接口中的方法名-->
+    <!--映射文件中的占位符等价于jdbc中sql的占位符 ？,有2种：
+      #{}:以字符串形式输出自动加引号
+      ${}:直接原样输出内容不带引号
+    -->
+    <!--传入参数：
+      parameterType：基本类型(int,double...)或引用类型(java.lang.String,com.qgx.www.entity.Choice)
+      parameterMap：一般单个实体类的属性无法覆盖所有传入参数时，使用Map集合
+    -->
+    <!--输出结果：(使用在查询中)
+      resultType:接收数据库中查询的数据，当数据库中的表字段和实体类属性一致情况下使用
+      resultMap:接收数据库中查询的数据，当数据库中的表字段和实体类属性不一致情况下使用，选择使用映射节点resultMap的id值
+    -->
+
+    <!--自定义一个结果类型映射，表名和实体类名映射，表字段和实体类属性映射-->
+
+        <!--属性和表字段映射-->
+
+
+</mapper>

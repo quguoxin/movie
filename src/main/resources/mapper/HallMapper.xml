@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--定义命名空间-->
-<mapper namespace="com.movie.www.mapper.InsuranceMapper">
+<mapper namespace="com.movie.www.mapper.HallMapper">
     <!--id：属性等价于接口中的方法名-->
     <!--映射文件中的占位符等价于jdbc中sql的占位符 ？,有2种：
       #{}:以字符串形式输出自动加引号
