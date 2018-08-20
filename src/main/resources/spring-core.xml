@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.3.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+    <!--引入数据源的资源文件-->
+    <bean id="placeholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list><!--这里用列表，代表可能有多个资源文件要引入-->
+                <value>classpath:db.properties</value>
+            </list>
+        </property>
+    </bean>
+
+    <!--配置数据源类型-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <!--连接的基本配置:常规四项：用户，密码，驱动，url-->
+        <property name="username" value="${username}"></property>
+        <property name="password" value="${password}"></property>
+        <property name="driverClassName" value="${driver}"></property>
+        <property name="url" value="${url}"></property>
+        <!--初始化配置-->
+        <property name="initialSize" value="8"></property>
+        <property name="maxActive" value="20"></property>
+        <property name="minIdle" value="2"></property>
+        <property name="maxWait" value="30000"></property>
+        <!--
+          建议配置为true，不影响性能，并且保证安全性。申请连接时检测
+          如果空闲时间大于timeBetweenEvictionRunsMillis，
+          执行validationQuery检测连接是否有效
+        -->
+        <property name="testWhileIdle" value="true"></property>
+        <property name="timeBetweenEvictionRunsMillis" value="6"></property>
+    </bean>
+
+    <!--创建SqlSessionFactory会话工厂-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean" >
+        <!--注入连接-->
+        <property name="dataSource" ref="dataSource"></property><!--通过包里的方法可知注入为对象则用ref-->
+        <!--扫描mybatis的sql映射文件-->
+        <property name="mapperLocations" value="classpath:mapper/*.xml"></property>
+    </bean>
+
+    <!--配置数据访问层连接接口扫描，自动创建数据访问层实现类-->
+    <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <!--注入连接工厂-->
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" ></property><!--通过包里的方法可知注入为字符串则用value-->
+        <!--扫描数据访问层接口所在的包-->
+        <property name="basePackage" value="com.movie.www.mapper"></property>
+    </bean>
+
+    <!--配置事务管理器-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <!--aop声明式事务-->
+    <!--事务特性-->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <!--isolation事务隔离级别，建议使用DEFAULT，
+                READ_UNCOMMITTED:事务最低的隔离级别
+                READ_COMMITTED
+                REPEATABLE_READ
+                SERIALIZABLE:安全性最高，但是性能低下
+                mysql：支持以上4种隔离级别
+                oracle:支持READ_COMMITTED，SERIALIZABLE
+            -->
+            <!--propagation：传播机制，分为7种，默认REQUIRED
+                REQUTRED：必须的，一定要加事务
+                SUPPORTS:有事务就使用，没有就非事务运行
+            -->
+            <tx:method name="add*" rollback-for="java.lang.Exception" isolation="DEFAULT" propagation="REQUIRED"/>
+            <tx:method name="update*" rollback-for="java.lang.Exception" />
+            <tx:method name="insert*" rollback-for="java.lang.Exception" />
+            <tx:method name="del*" rollback-for="java.lang.Exception" />
+            <tx:method name="find*" rollback-for="java.lang.Exception" />
+            <tx:method name="select*" rollback-for="java.lang.Exception" />
+            <tx:method name="search*" rollback-for="java.lang.Exception" />
+        </tx:attributes>
+    </tx:advice>
+    <!--事务切入点-->
+    <aop:config>
+        <aop:pointcut id="pointcut" expression="execution(* com.movie.www.service.impl.*.*(..))"></aop:pointcut>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="pointcut"></aop:advisor>
+    </aop:config>
+
+    <!--bean扫描:业务层和数据访问层-->
+    <context:component-scan base-package="com.movie.www.service,
+                                          com.movie.www.mapper">
+    </context:component-scan>
+</beans>

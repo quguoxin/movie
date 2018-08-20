@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.3.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd ">
+
+
+    <!-- bean扫描:控制器层，拦截器，aop增强-->
+    <context:component-scan base-package="com.movie.www.controller,
+                                          com.movie.www.aop,
+                                          com.movie.www.interceptor">
+    </context:component-scan>
+
+    <!--扫描切面-->
+    <aop:aspectj-autoproxy proxy-target-class="true"></aop:aspectj-autoproxy>
+
+    <!--视图解析器：访问页面-->
+    <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/"></property><!--访问前缀-->
+        <property name="suffix" value=".jsp"></property><!--访问后缀-->
+    </bean>
+
+    <!--类型转换器：
+    告知spring，我们启动了注释驱动，让spring帮我们自动注入需要使用的BeanFactory来处理我们的请求
+    -->
+    <mvc:annotation-driven>
+        <!-- 类型转换器:将返回对象转为json对象-->
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
+
+    <!--声明自定义拦截器-->
+    <mvc:interceptors>
+        <!--性能监控-->
+        <ref bean="performanceMonitoringInterceptor"></ref>
+        <!--其他拦截器-->
+        <!--<mvc:interceptor>
+            &lt;!&ndash;匹配url路径，如果是不拍之或配置/**，将拦截所有的请求&ndash;&gt;
+            <mvc:mapping path="/interceptor/*"/>
+            <ref bean="myInterceptor3"></ref>
+        </mvc:interceptor>-->
+    </mvc:interceptors>
+
+    <!--文件上传，id必须设置为：multipartResolver-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="1000000000000000000"></property>
+        <property name="maxInMemorySize" value="409600000"></property>
+        <property name="defaultEncoding" value="UTF-8"></property>
+    </bean>
+</beans>
