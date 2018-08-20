@@ -6,32 +6,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="174026f3-2e33-4756-9878-0c2c2f783b2a" name="Default" comment="新建了mapper、service、impl文件模板">
-      <change beforePath="" afterPath="$PROJECT_DIR$/../movie/src/main/java/com/movie/www/controller/ViewController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../movie/src/main/java/com/movie/www/controller/login.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../movie/src/main/java/com/movie/www/entity/Film.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../movie/src/main/java/com/movie/www/entity/Hall.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../movie/src/main/java/com/movie/www/entity/Platoon.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../movie/src/main/java/com/movie/www/entity/UserInfo.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../movie/src/main/java/com/movie/www/mapper/FilmMapper.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../movie/src/main/java/com/movie/www/mapper/HallMapper.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../movie/src/main/java/com/movie/www/mapper/PlatoonMapper.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../movie/src/main/java/com/movie/www/mapper/UserInfoMapper.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../movie/src/main/java/com/movie/www/service/FilmService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../movie/src/main/java/com/movie/www/service/HallService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../movie/src/main/java/com/movie/www/service/PlatoonService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../movie/src/main/java/com/movie/www/service/UserInfoService.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../movie/src/main/java/com/movie/www/service/impl/FilmServiceImpl.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../movie/src/main/java/com/movie/www/service/impl/HallServiceImpl.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../movie/src/main/java/com/movie/www/service/impl/PlatoonServiceImpl.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../movie/src/main/java/com/movie/www/service/impl/UserInfoServiceImpl.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../movie/src/main/resources/mapper/HallMapper.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../movie/src/main/resources/mapper/PlatoonMapper.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../movie/src/main/resources/mapper/UserInfoMapper.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../movie/src/main/webapp/imgs/login/bd5fb493e658d5d51c46dd9f72cc5677168066.jpg" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../movie/src/main/webapp/login_user.jsp" />
+    <list default="true" id="174026f3-2e33-4756-9878-0c2c2f783b2a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/../movie/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../movie/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/../movie/src/main/resources/mapper/InsuranceMapper.xml" afterPath="$PROJECT_DIR$/../movie/src/main/resources/mapper/FilmMapper.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/../movie/out/" />
     <ignored path="$PROJECT_DIR$/../movie/target/" />
@@ -60,9 +36,10 @@
       <file leaf-file-name="login.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../movie/src/main/java/com/movie/www/controller/login.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="3" column="52" lean-forward="true" selection-start-line="3" selection-start-column="52" selection-end-line="3" selection-end-column="52" />
+            <state relative-caret-position="216">
+              <caret line="9" column="36" lean-forward="true" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="e#304#305#0" expanded="true" />
                 <element signature="e#333#334#0" expanded="true" />
               </folding>
@@ -522,7 +499,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1534733248104</updated>
-      <workItem from="1534733254169" duration="10213000" />
+      <workItem from="1534733254169" duration="10506000" />
     </task>
     <task id="LOCAL-00001" summary="首次上次项目movie">
       <created>1534736305261</created>
@@ -538,11 +515,18 @@
       <option name="project" value="LOCAL" />
       <updated>1534746280183</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="新建了entity、mapper、service、impl文件模板">
+      <created>1534751874564</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1534751874564</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10213000" />
+    <option name="totallyTimeSpent" value="10506000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -559,7 +543,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1388889" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21078432" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -589,7 +573,8 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <MESSAGE value="首次上次项目movie" />
-    <option name="LAST_COMMIT_MESSAGE" value="首次上次项目movie" />
+    <MESSAGE value="新建了entity、mapper、service、impl文件模板" />
+    <option name="LAST_COMMIT_MESSAGE" value="新建了entity、mapper、service、impl文件模板" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1050,9 +1035,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../movie/src/main/java/com/movie/www/controller/login.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="3" column="52" lean-forward="true" selection-start-line="3" selection-start-column="52" selection-end-line="3" selection-end-column="52" />
+        <state relative-caret-position="216">
+          <caret line="9" column="36" lean-forward="true" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="e#304#305#0" expanded="true" />
             <element signature="e#333#334#0" expanded="true" />
           </folding>
