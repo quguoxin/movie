@@ -17,6 +17,14 @@ public class SmsUtils {
 	static AbsRestClient InstantiationRestAPI() {
 		return new JsonReqClient();
 	}
+	public static void sendOneSms(String param, String mobile, String uid){
+		try {
+			String result=InstantiationRestAPI().sendOneSms(param, mobile, uid);
+			System.out.println("Response content is: " + result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 	public static void testSendSms(String sid, String token, String appid, String templateid, String param, String mobile, String uid){
 		try {

@@ -6,7 +6,13 @@
 package com.movie.www.sms;
 public abstract class AbsRestClient {
 	public String server=SysConfig.getInstance().getProperty("rest_server");
-	
+	/**
+	 * @param param
+	 * @param mobile
+	 * @param uid
+	 * @return
+	 */
+	public abstract String sendOneSms(String param, String mobile, String uid);
 	/**
 	 * 
 	 * @param sid

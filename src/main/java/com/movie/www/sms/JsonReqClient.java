@@ -3,6 +3,34 @@ import com.alibaba.fastjson.JSONObject;
 import com.movie.www.util.HttpClientUtil;
 
 public class JsonReqClient extends AbsRestClient {
+	@Override
+	public String sendOneSms(String param, String mobile,String uid) {
+
+		String result = "";
+
+		try {
+			String url = getStringBuffer().append("/sendsms").toString();
+
+			JSONObject jsonObject = new JSONObject();
+			jsonObject.put("sid", SysConfig.getInstance().getProperty("sid"));
+			jsonObject.put("token", SysConfig.getInstance().getProperty("auth_token"));
+			jsonObject.put("appid", SysConfig.getInstance().getProperty("appid"));
+			jsonObject.put("templateid", SysConfig.getInstance().getProperty("onesms_validateCode_templateid"));
+			jsonObject.put("param", param);
+			jsonObject.put("mobile", mobile);
+			jsonObject.put("uid", uid);
+
+			String body = jsonObject.toJSONString();
+
+			System.out.println("body = " + body);
+
+			result = HttpClientUtil.postJson(url, body, null);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 	
 	@Override
 	public String sendSms(String sid, String token, String appid, String templateid, String param, String mobile, 
