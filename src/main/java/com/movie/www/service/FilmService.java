@@ -9,4 +9,11 @@ public interface FilmService {
     public int findCount(Film film);
     public List<Film> findFilmById(int fId);
 
+    List<Film> findListByPage(int offset, int limit, Film film);
+
+    int addFilm(Film film);
+
+    int updateFilm(Film film);
+
+    int deleteFilm(int fId);
 }

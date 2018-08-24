@@ -32,4 +32,24 @@ public class FilmServiceImpl implements FilmService {
     public List<Film> findFilmById(int fId) {
         return filmMapper.findFilmById(fId);
     }
+
+    @Override
+    public List<Film> findListByPage(int offset, int limit, Film film) {
+        return null;
+    }
+
+    @Override
+    public int addFilm(Film film) {
+        return 0;
+    }
+
+    @Override
+    public int updateFilm(Film film) {
+        return 0;
+    }
+
+    @Override
+    public int deleteFilm(int fId) {
+        return 0;
+    }
 }
