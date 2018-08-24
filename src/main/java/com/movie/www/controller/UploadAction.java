@@ -35,7 +35,7 @@ public class UploadAction {
                     //设置目标文件
 
                     request.setAttribute("fileName",multipartFile.getOriginalFilename());
-                    File destFile = new File("C:\\Users\\Administrator\\IdeaProjects\\movie\\src\\main\\webapp\\imgs\\movie\\"+multipartFile.getOriginalFilename());
+                    File destFile = new File("D:\\movie\\src\\main\\webapp\\imgs\\touxiang\\"+multipartFile.getOriginalFilename());
                     try {
                         //进行上传
                         multipartFile.transferTo(destFile);

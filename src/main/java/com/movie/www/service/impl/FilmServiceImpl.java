@@ -3,6 +3,8 @@ package com.movie.www.service.impl;
 import com.movie.www.entity.Film;
 import com.movie.www.mapper.FilmMapper;
 import com.movie.www.service.FilmService;
+import com.movie.www.util.DateUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,10 +12,25 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import java.util.Date;
+import java.util.List;
+
 @Service
 public class FilmServiceImpl implements FilmService {
+
     @Autowired
     private FilmMapper filmMapper;
+    //正在热映
+    @Override
+    public List<Film> findIngFilm() {
+        return filmMapper.findIngFilm();
+    }
+
+    @Override
+    public List<Film> findNewFilm() {
+        return filmMapper.findNewFilm();
+    }
+
     @Override
     public List<Film> findFilmByParams(int pageNo, int pageSize, Film film) {
         Map<String,Object> map=new HashMap<>();

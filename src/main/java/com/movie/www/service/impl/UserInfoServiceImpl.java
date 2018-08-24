@@ -8,10 +8,13 @@ import com.movie.www.util.JedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
+
 import java.util.List;
 
 @Service
 public class UserInfoServiceImpl implements UserInfoService {
+
     @Autowired
     private UserInfoMapper userInfoMapper;
     @Override
@@ -23,8 +26,17 @@ public class UserInfoServiceImpl implements UserInfoService {
     }
 
     @Override
-    public String findUserByPhoneAndPassword(UserInfo userInfo) {
-        return null;
+    public String findUserByPhoneAndPassword(UserInfo userInfo, HttpSession session) {
+        UserInfo userInfo1 = userInfoMapper.findUserByPhoneAndPassword(userInfo);
+        session.setAttribute("uId", userInfo1.getuId());
+        if (userInfo1 != null) {
+            if (userInfo1.getUserName().equals("admin")) {
+                return "adminPage";
+            } else {
+                return "main";
+            }
+        }
+        return "login_user";
     }
 
     @Override

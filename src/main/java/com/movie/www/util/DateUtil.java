@@ -15,6 +15,7 @@ public class DateUtil {
     public static String format3 = "yyyy年MM月dd日 hh小时mm分ss秒";
     public static String format4 = "yyyyMMddhhmmss";
     public static String format5 = "yyyy-MM-dd hh:mm:ss:SSS";
+    public static String format6 = "yyyy-MM-dd";
 
     /**
      * 将指定时间格式化为指定格式字符串
@@ -22,7 +23,7 @@ public class DateUtil {
      * @return
      */
     public static String format(Date date){
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format5);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format6);
         return simpleDateFormat.format(date);
     }
 

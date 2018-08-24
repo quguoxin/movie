@@ -3,6 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.movie.www.mapper.UserInfoMapper">
+
 <select id="findUserByPhoneAndPassword" parameterType="com.movie.www.entity.UserInfo" resultType="com.movie.www.entity.UserInfo" >
     SELECT *  from userinfo WHERE phone=#{phone} and password=#{password}
 </select>
@@ -13,7 +14,7 @@ INSERT INTO `userinfo` (userName,phone,`password`) VALUES (#{userName},#{phone},
     SELECT *  from userinfo WHERE phone=#{phone}
 </select>
     <update id="updateUserInfoByUid" parameterType="com.movie.www.entity.UserInfo">
-        UPDATE `userinfo` u SET u.`userName`=#{userName},u.`sex`=#{sex},u.`birthday`=#{birthday},u.portrait=#{fileName} WHERE u.`uId`=#{uId}
+        UPDATE `userinfo` u SET u.`userName`=#{userName},u.`sex`=#{sex},u.`birthday`=#{birthday},u.portrait=#{portrait} WHERE u.`uId`=#{uId}
     </update>
     <select id="findUserInfoByUid" parameterType="com.movie.www.entity.UserInfo" resultType="com.movie.www.entity.UserInfo">
         SELECT *  from userinfo WHERE uId=#{uId}

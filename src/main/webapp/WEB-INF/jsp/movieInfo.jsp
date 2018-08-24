@@ -19,9 +19,9 @@
     <base href="<%= basePath %>"/>
     <title>电影详情</title>
     <!--bootstrap-->
-    <link href="bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet">
+    <link href="../../bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet">
     <!--bootstrap-table css库-->
-    <link href="bootstrap-3.3.7-dist/bootstrap-table/bootstrap-table.css" rel="stylesheet">
+    <link href="../../bootstrap-3.3.7-dist/bootstrap-table/bootstrap-table.css" rel="stylesheet">
     <!--HTML5 shim 和 Respond.js是为了让IE8支持HTML5元素和媒体查询功能-->
     <!--警告：通过file://协议（就是这样讲html页面拖拽到浏览器中）访问页面时Respond.js不起作用-->
     <!--[if lt IE 9]-->
@@ -106,13 +106,13 @@
 </div>
 </body>
 <!-- jQuery(Bootstrap的所有JavaScript插件都依赖jQuery，所以必须放在前面)-->
-<script src="js/jquery-1.11.1.min.js"></script>
+<script src="../../js/jquery-1.11.1.min.js"></script>
 <!-- 加载Bootstrap的所有JavaScript插件，可根据需要只加载单个插件-->
-<script src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+<script src="../../bootstrap-3.3.7-dist/js/bootstrap.js"></script>
 <!--bootstrap-table插件-->
-<script src="bootstrap-3.3.7-dist/bootstrap-table/bootstrap-table.js"></script>
-<script src="bootstrap-3.3.7-dist/bootstrap-table/bootstrap-table-zh-CN.js"></script>
-<script src="js/myJsUtil.js"></script>
+<script src="../../bootstrap-3.3.7-dist/bootstrap-table/bootstrap-table.js"></script>
+<script src="../../bootstrap-3.3.7-dist/bootstrap-table/bootstrap-table-zh-CN.js"></script>
+<script src="../../js/myJsUtil.js"></script>
 <script>
     var fileTypeList="";
     var fileArea=0;
@@ -173,8 +173,8 @@
                   for(var i=0;i<list.length;i++){
                       var obj=list[i];
                       tmp+='<dl style="width: 140px;height: 160px;margin-top: 10px;float: left">';
-                      tmp+='<dt style="text-align: center"><a class="a" href="movieInfo.jsp?fId='+obj.fId+'"><img style="height: 145px;width: 105px" src="imgs/movie/'+obj.filePoster+'.jpg" /></a></dt>';
-                      tmp+='<dd style="text-align: center"><a class="a" href="movieInfo.jsp?fId='+obj.fId+'">'+obj.fileName+'</a></dd>';
+                      tmp+='<dt style="text-align: center"><a class="a" href="view/toView.action?vn=movieInfo&fId='+obj.fId+'"><img style="height: 145px;width: 105px" src="imgs/movie/'+obj.filePoster+'.jpg" /></a></dt>';
+                      tmp+='<dd style="text-align: center"><a class="a" href="view/toView.action?vn=movieInfo&fId='+obj.fId+'">'+obj.fileName+'</a></dd>';
                       if (obj.scores==0){
                           var score="暂无评";
                       }else{

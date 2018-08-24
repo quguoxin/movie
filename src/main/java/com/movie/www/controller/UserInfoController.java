@@ -34,8 +34,8 @@ public class UserInfoController {
         MyResponseBody myResponeBody=new MyResponseBody();
         int uId= (int) session.getAttribute("uId");
         //String portrait=(String) session.getAttribute("fileName");
-        String portrait= (String) request.getAttribute("fileName");
-        userInfo.setPortrait(portrait);
+        //String portrait= (String) request.getAttribute("fileName");
+        userInfo.setPortrait("11.jpg");
         userInfo.setuId(uId);
         int n=userInfoService.updateUserInfoByUid(userInfo);
         if (n>0){

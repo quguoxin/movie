@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 @RequestMapping("/login")
 public class LoginController {
@@ -14,7 +16,7 @@ public class LoginController {
     private UserInfoService userInfoService;
     //验证登录
     @RequestMapping(value = "/doLogin")
-    public String doLogin(UserInfo userInfo){
-        return userInfoService.findUserByPhoneAndPassword(userInfo);
+    public String doLogin(UserInfo userInfo,HttpSession session){
+        return userInfoService.findUserByPhoneAndPassword(userInfo,session);
     }
 }

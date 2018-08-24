@@ -9,16 +9,27 @@ public class ViewController {
 
     @RequestMapping("/toView")
     public String toView(String vn){
-       if(vn.equals("userInfo")){
-            return "userInfo";
-        }if(vn.equals("filmInfo")){
-            return "filmInfo";
-        }if(vn.equals("platoon")){
-            return "platoon";
-        }if(vn.equals("orderInfo")){
-            return "orderInfo";
+        if(vn.equals("main")){
+            return "main";
+        }else if(vn.equals("homePage")){
+            return "homePage";
+        }else if(vn.equals("movieList")){
+            return "movieList";
+        }else if(vn.equals("rankingList")){
+            return "rankingList";
+        }else if(vn.equals("personalCenter")){
+            return "personalCenter";
+        }else if(vn.equals("myOrder")){
+            return "myOrder";
+        }else if(vn.equals("basicInfo")){
+            return "basicInfo";
+        }else if(vn.equals("allMovies")){
+            return "allMovies";
+        }else if(vn.equals("hotplay")){
+            return "hotplay";
+        }else if(vn.equals("movieInfo")){
+            return "movieInfo";
         }
-
         return "";
     }
 
