@@ -30,9 +30,9 @@
         <div id="cm-menu-items-wrapper">
             <div id="cm-menu-scroller">
                 <ul class="cm-menu-items">
-                    <li class="active"><a href="view/toView.action?vn=userInfo" target="center_body" class="sf-house">Home</a></li>
-                    <li><a href="view/toView.action?vn=userInfo" target="center_body" class="sf-dashboard">用户管理</a></li>
-                    <li><a href="view/toView.action?vn=filmInfo" target="center_body" class="sf-brick">影库管理</a></li>
+                    <li class="active"><a href="index.html" class="sf-house">Home</a></li>
+                    <li><a href="view/userInfo.action?vn=userInfo" target="center_body" class="sf-dashboard">用户管理</a></li>
+                    <li><a href="components-text.html" class="sf-brick">影库管理</a></li>
                     <li><a href="notepad.html" class="sf-notepad">放映安排</a></li>
                     <li><a href="login.html" class="sf-lock-open">订单详情</a></li>
                 </ul>
@@ -51,7 +51,7 @@
         <div class="panel panel-default">
             <div class="panel-body">
 
-                <iframe id="center_body" name="center_body" src="view/toView.action?vn=userInfo"
+                <iframe id="center_body" name="center_body" src="view/insurance.action?vn=insurance"
                         height="830px" width="100%" frameborder="0" framespacing="0" scrolling="no"></iframe>
             </div>
         </div>

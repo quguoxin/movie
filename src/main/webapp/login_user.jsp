@@ -24,7 +24,7 @@
 </div>
 
 <div class="col-sm-6 col-md-4 col-lg-3" style="margin:40px auto; float:none;">
-    <form method="post" action="/login/doLogin.action">
+    <form method="post" action="login/doLogin.action">
         <div class="col-xs-12">
             <div class="form-group">
                 <div class="input-group">
@@ -45,6 +45,7 @@
         </div>
         <div class="col-xs-6">
             <div class="checkbox"><a href="regist.jsp">没有账号？ 注册</a></div>
+
         </div>
     </form>
 </div>

@@ -9,9 +9,7 @@ public class ViewController {
 
     @RequestMapping("/toView")
     public String toView(String vn){
-        if(vn.equals("insurance")){
-            return "insurance";
-        }if(vn.equals("userInfo")){
+       if(vn.equals("userInfo")){
             return "userInfo";
         }if(vn.equals("addUserInfo")){
             return "addUserInfo";

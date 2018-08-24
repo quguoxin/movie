@@ -97,7 +97,6 @@
     </aop:config>
 
     <!--bean扫描:业务层和数据访问层-->
-    <context:component-scan base-package="com.movie.www.service,
-                                          com.movie.www.mapper">
+    <context:component-scan base-package="com.movie.www.service,com.movie.www.aop,com.movie.www.mapper">
     </context:component-scan>
 </beans>
