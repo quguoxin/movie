@@ -30,7 +30,7 @@ public MyResponseBody selectByPrice(){
     List<ApartFilm> list=filmRankService.selectByPrice();
     MyResponseBody myResponseBody=new MyResponseBody();
     myResponseBody.setCode(200);
-    myResponseBody.setMsg("最受期待榜");
+    myResponseBody.setMsg("最受欢迎");
     myResponseBody.setData(list);
     return myResponseBody;
 }

@@ -1,6 +1,6 @@
 package com.movie.www.controller;
 
-import com.movie.www.bean.MyResponeBody;
+import com.movie.www.bean.MyResponseBody;
 import com.movie.www.entity.UserInfo;
 import com.movie.www.service.UserInfoService;
 import com.movie.www.util.JedisUtil;
@@ -17,8 +17,8 @@ public class RegisterController {
     private UserInfoService userInfoService;
     @RequestMapping(value = "/sendsms")
     @ResponseBody
-    public MyResponeBody sendSms(String phone){
-    MyResponeBody myResponeBody=new MyResponeBody();
+    public MyResponseBody sendSms(String phone){
+    MyResponseBody myResponeBody=new MyResponseBody();
     userInfoService.addSms(phone);
     myResponeBody.setCode(200);
     myResponeBody.setMsg("短信发送成功");
@@ -26,8 +26,8 @@ public class RegisterController {
     }
     @RequestMapping("/register")
     @ResponseBody
-    public MyResponeBody register(UserInfo userInfo,String smsNumber){
-    MyResponeBody myResponeBody=new MyResponeBody();
+    public MyResponseBody register(UserInfo userInfo, String smsNumber){
+    MyResponseBody myResponeBody=new MyResponseBody();
     String oldCode= JedisUtil.getInstance().getByKey(userInfo.getPhone()+"-code");
     if (!StringUtils.isNotEmpty(oldCode)){
         myResponeBody.setCode(9988);

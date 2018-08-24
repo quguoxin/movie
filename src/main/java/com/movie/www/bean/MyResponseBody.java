@@ -1,14 +1,14 @@
 package com.movie.www.bean;
 
-public class MyResponeBody {
+public class MyResponseBody {
     private int code;
     private String msg;
     private Object data;
 
-    public MyResponeBody() {
+    public MyResponseBody() {
     }
 
-    public MyResponeBody(int code, String msg, Object data) {
+    public MyResponseBody(int code, String msg, Object data) {
         this.code = code;
         this.msg = msg;
         this.data = data;

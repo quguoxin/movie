@@ -1,6 +1,6 @@
 package com.movie.www.controller;
 
-import com.movie.www.bean.MyResponeBody;
+import com.movie.www.bean.MyResponseBody;
 import com.movie.www.entity.UserInfo;
 import com.movie.www.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +19,9 @@ public class UserInfoController {
     private UserInfoService userInfoService;
     @RequestMapping("/findUserInfoByUid")
     @ResponseBody
-    public MyResponeBody findUserInfoByUid(int uId){
+    public MyResponseBody findUserInfoByUid(int uId){
         List<UserInfo> list=userInfoService.findUserInfoByUid(uId);
-        MyResponeBody myResponeBody=new MyResponeBody();
+        MyResponseBody myResponeBody=new MyResponseBody();
         myResponeBody.setCode(200);
         myResponeBody.setData(list);
         return myResponeBody;
@@ -30,8 +30,8 @@ public class UserInfoController {
 
     @RequestMapping("/updateUserInfoByUid")
     @ResponseBody
-    public MyResponeBody updateUserInfoByUid(UserInfo userInfo, HttpSession session,HttpServletRequest request){
-        MyResponeBody myResponeBody=new MyResponeBody();
+    public MyResponseBody updateUserInfoByUid(UserInfo userInfo, HttpSession session, HttpServletRequest request){
+        MyResponseBody myResponeBody=new MyResponseBody();
         int uId= (int) session.getAttribute("uId");
         //String portrait=(String) session.getAttribute("fileName");
         String portrait= (String) request.getAttribute("fileName");

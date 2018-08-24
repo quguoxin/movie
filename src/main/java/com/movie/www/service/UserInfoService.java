@@ -1,6 +1,5 @@
 package com.movie.www.service;
 
-import com.movie.www.bean.MyResponeBody;
 import com.movie.www.entity.UserInfo;
 import org.springframework.stereotype.Service;
 
