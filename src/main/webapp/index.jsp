@@ -21,5 +21,6 @@
 </head>
 <body>
 <h2>注册成功</h2>
+<a href="view/toView.action?vn=basicInfo">sssss</a>
 </body>
 </html>

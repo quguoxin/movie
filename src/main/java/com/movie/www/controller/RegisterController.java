@@ -1,6 +1,7 @@
 package com.movie.www.controller;
 
 import com.movie.www.bean.MyResponeBody;
+import com.movie.www.entity.UserInfo;
 import com.movie.www.service.UserInfoService;
 import com.movie.www.util.JedisUtil;
 import org.apache.commons.lang3.StringUtils;
@@ -14,8 +15,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class RegisterController {
     @Autowired
     private UserInfoService userInfoService;
-@RequestMapping(value = "/sendsms")
-@ResponseBody
+    @RequestMapping(value = "/sendsms")
+    @ResponseBody
     public MyResponeBody sendSms(String phone){
     MyResponeBody myResponeBody=new MyResponeBody();
     userInfoService.addSms(phone);
@@ -25,17 +26,26 @@ public class RegisterController {
     }
     @RequestMapping("/register")
     @ResponseBody
-    public MyResponeBody register(String userName,String password,String phone,String code){
+    public MyResponeBody register(UserInfo userInfo,String smsNumber){
     MyResponeBody myResponeBody=new MyResponeBody();
-    String oldCode= JedisUtil.getInstance().getByKey(phone+"");
-    if (StringUtils.isNotEmpty(oldCode)){
-        myResponeBody.setCode(9998);
+    String oldCode= JedisUtil.getInstance().getByKey(userInfo.getPhone()+"-code");
+    if (!StringUtils.isNotEmpty(oldCode)){
+        myResponeBody.setCode(9988);
         myResponeBody.setMsg("你的验证码已过期");
         return myResponeBody;
     }
-    if (code.equals(oldCode)){
-       myResponeBody.setCode(200);
-       myResponeBody.setMsg("短信发送成功");
+    if (smsNumber.equals(oldCode)){
+        int num=userInfoService.addUserInfo(userInfo);
+        if (num>0){
+            myResponeBody.setCode(200);
+            myResponeBody.setMsg("注册成功");
+        }else if (num==-2){
+            myResponeBody.setCode(-2);
+            myResponeBody.setMsg("手机号码已被注册");
+        }else{
+            myResponeBody.setCode(-1);
+            myResponeBody.setMsg("注册失败");
+        }
     }else {
        myResponeBody.setCode(9999);
        myResponeBody.setMsg("你输入的验证码不正确");

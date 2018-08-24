@@ -22,6 +22,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
     <base href="<%= basePath %>"/>
     <title>注册页面</title>
+
     <style></style>
 </head>
 <body class="cm-login">
@@ -36,7 +37,7 @@
             <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-fw fa-user"></i></div>
-                    <input type="text" name="username" class="form-control" placeholder="用户名">
+                    <input type="text" name="userName" class="form-control" placeholder="用户名">
                 </div>
             </div>
             <div class="form-group">
@@ -78,6 +79,11 @@
 </body>
 <%--<script src="js/jquery-1.11.1.min.js"></script>--%>
 <script src="assets/js/lib/jquery-2.1.3.min.js"></script>
+<!-- 加载Bootstrap的所有JavaScript插件，可根据需要只加载单个插件-->
+<script src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+<!--bootstrap-table插件-->
+<script src="bootstrap-3.3.7-dist/bootstrap-table/bootstrap-table.js"></script>
+<script src="bootstrap-3.3.7-dist/bootstrap-table/bootstrap-table-zh-CN.js"></script>
 <script>
   $(function () {
       //发送短信
@@ -96,20 +102,23 @@
            }
        });
    });
+   //注册
    $("#reg").click(function () {
-       $.getJSON("",$("#regForm").serialize()  ,function (res) {
+       $.getJSON("user/register.action",$("#regForm").serialize(),function (res) {
         if(res.code==200){
-           $("#myModal .modal-body").html("<span style='color: green'>"+res.msg()+"</sapn>");
+           $("#myModal .modal-body").html("<span style='color: green'>"+res.msg+"</sapn>");
 
         }else {
-            $("#myModal .modal-body").html("<span style='color: red'>"+res.msg()+"</sapn>");
+            $("#myModal .modal-body").html("<span style='color: red'>"+res.msg+"</sapn>");
+
         }
            $("#myModal").modal("show");
-       })
-   })
+       });
+   });
   });
 </script>
-<%--<div class="modal-fade" id="myModal" TABINDEX="-1" ROLE="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!--模态框-->
+<div class="modal fade" id="myModal" TABINDEX="-1" ROLE="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -124,5 +133,5 @@
             </div>
         </div>
     </div>
-</div>--%>
+</div>
 </html>

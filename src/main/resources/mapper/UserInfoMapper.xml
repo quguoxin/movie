@@ -6,6 +6,16 @@
 <select id="findUserByPhoneAndPassword" parameterType="com.movie.www.entity.UserInfo" resultType="com.movie.www.entity.UserInfo" >
     SELECT *  from userinfo WHERE phone=#{phone} and password=#{password}
 </select>
-
-
+<insert id="addUserInfo" parameterType="com.movie.www.entity.UserInfo" >
+INSERT INTO `userinfo` (userName,phone,`password`) VALUES (#{userName},#{phone},#{password})
+</insert>
+<select id="findUserByPhone" parameterType="com.movie.www.entity.UserInfo" resultType="com.movie.www.entity.UserInfo">
+    SELECT *  from userinfo WHERE phone=#{phone}
+</select>
+    <update id="updateUserInfoByUid" parameterType="com.movie.www.entity.UserInfo">
+        UPDATE `userinfo` u SET u.`userName`=#{userName},u.`sex`=#{sex},u.`birthday`=#{birthday},u.portrait=#{fileName} WHERE u.`uId`=#{uId}
+    </update>
+    <select id="findUserInfoByUid" parameterType="com.movie.www.entity.UserInfo" resultType="com.movie.www.entity.UserInfo">
+        SELECT *  from userinfo WHERE uId=#{uId}
+    </select>
 </mapper>

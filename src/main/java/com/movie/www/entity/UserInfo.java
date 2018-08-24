@@ -11,17 +11,19 @@ public class UserInfo {
     private String birthday;
     private int sex; //男：1   女：2
     private String password;
+    private String portrait;
 
     public UserInfo() {
     }
 
-    public UserInfo(int uId, String userName, String phone, String birthday, int sex, String password) {
+    public UserInfo(int uId, String userName, String phone, String birthday, int sex, String password, String portrait) {
         this.uId = uId;
         this.userName = userName;
         this.phone = phone;
         this.birthday = birthday;
         this.sex = sex;
         this.password = password;
+        this.portrait = portrait;
     }
 
     public int getuId() {
@@ -72,6 +74,14 @@ public class UserInfo {
         this.password = password;
     }
 
+    public String getPortrait() {
+        return portrait;
+    }
+
+    public void setPortrait(String portrait) {
+        this.portrait = portrait;
+    }
+
     @Override
     public String toString() {
         return "UserInfo{" +
@@ -81,6 +91,7 @@ public class UserInfo {
                 ", birthday='" + birthday + '\'' +
                 ", sex=" + sex +
                 ", password='" + password + '\'' +
+                ", portrait='" + portrait + '\'' +
                 '}';
     }
 }

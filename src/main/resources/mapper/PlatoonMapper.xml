@@ -20,6 +20,19 @@
     <!--自定义一个结果类型映射，表名和实体类名映射，表字段和实体类属性映射-->
 
         <!--属性和表字段映射-->
+    <resultMap id="platoonMap" type="com.movie.www.bean.PlatoonBean">
+        <id property="pId" column="pId"></id>
+        <result property="playDate" column="playDate"></result>
+        <result property="piayTime" column="piayTime"></result>
+        <result property="hallNo" column="hallNo"></result>
+        <result property="filePrice" column="filePrice"></result>
+    </resultMap>
 
+    <!--分页-->
+    <!--id为mapper接口名-->
+    <select id="findPlatoonByParams" parameterType="int" resultType="com.movie.www.bean.PlatoonBean">
+        SELECT p.pId AS pId,p.hallNo AS hallNo,p.piayTime AS piayTime,p.playDate AS playDate,f.filePrice AS filePrice FROM platoon p,film f WHERE p.fId=f.fId AND  p.fId=#{fId} AND   DATEDIFF(p.playDate,CURRENT_DATE) >= 0 ORDER BY p.playDate;
+    </select>
 
+    <!---->
 </mapper>

@@ -21,5 +21,62 @@
 
         <!--属性和表字段映射-->
 
+    <resultMap id="filmMap" type="com.movie.www.entity.Film">
+        <id property="fId" column="fId"></id>
+        <result property="fileName" column="fileName"></result>
+        <result property="fileTypeList" column="fileTypeList"></result>
+        <result property="fileTime" column="fileTime"></result>
+        <result property="scores" column="scores"></result>
+        <result property="releaseDate" column="releaseDate"></result>
+        <result property="fileSynopsis" column="fileSynopsis"></result>
+        <result property="filePoster" column="filePoster"></result>
+        <result property="fileArea" column="fileArea"></result>
+        <result property="fileActorList" column="fileActorList"></result>
+        <result property="filePrice" column="filePrice"></result>
+    </resultMap>
+    <!--分页-->
+    <!--id为mapper接口方法名-->
+    <select id="findFilmByParams" parameterType="map" resultMap="filmMap">
+        SELECT * FROM film f
+        <choose >
+            <when test="film.scores == 0.0">
+                <trim  prefix="where"  prefixOverrides="and|or">
+                    <if test="film.fileTypeList!=null and film.fileTypeList!=''">AND f.fileTypeList LIKE '%${film.fileTypeList}%'</if>
+                    <if test="film.fileArea!=0 ">AND f.fileArea=#{film.fileArea}</if>
+                    <if test="film.releaseDate!=null and film.releaseDate!=''">AND f.releaseDate LIKE '%${film.releaseDate}%' </if>
+                </trim>
+            </when>
+            <when test="film.scores == 1.0">
+                <where>
+                    <if test="film.fileTypeList!=null and film.fileTypeList!=''">AND f.fileTypeList LIKE '%${film.fileTypeList}%'</if>
+                    <if test="film.fileArea!=0 ">AND f.fileArea=#{film.fileArea}</if>
+                    <if test="film.releaseDate!=null and film.releaseDate!=''">AND f.releaseDate LIKE '%${film.releaseDate}%' </if>
+                </where>
+                ORDER BY f.scores DESC
+            </when>
+            <when test="film.scores == 2.0">
+                <where>
+                    <if test="film.fileTypeList!=null and film.fileTypeList!=''">AND f.fileTypeList LIKE '%${film.fileTypeList}%'</if>
+                    <if test="film.fileArea!=0 ">AND f.fileArea=#{film.fileArea}</if>
+                    <if test="film.releaseDate!=null and film.releaseDate!=''">AND f.releaseDate LIKE '%${film.releaseDate}%' </if>
+                </where>
+                ORDER BY f.releaseDate DESC
+            </when>
+        </choose>
+        limit #{pageNo},#{pageSize}
+    </select>
+    <!--总记录数-->
+    <select id="findCount" resultType="int" parameterType="com.movie.www.entity.Film">
+        SELECT count(1)  FROM film f
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="fileTypeList!=null and fileTypeList!=''">AND f.fileTypeList LIKE '%${fileTypeList}%' </if>
+            <if test="fileArea!=0">AND f.fileArea=#{fileArea} </if>
+            <if test="releaseDate!=null and releaseDate!=''">AND f.releaseDate LIKE '%${releaseDate}%' </if>
+        </trim>
+    </select>
+    <select id="findFilmById" parameterType="int" resultType="com.movie.www.entity.Film">
+        SELECT * FROM film f WHERE f.`fId`=#{fId}
+    </select>
+
 
 </mapper>
