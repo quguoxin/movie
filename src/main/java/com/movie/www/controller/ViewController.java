@@ -13,6 +13,10 @@ public class ViewController {
             return "insurance";
         }if(vn.equals("userInfo")){
             return "userInfo";
+        }if(vn.equals("addUserInfo")){
+            return "addUserInfo";
+        }if(vn.equals("filmInfo")){
+            return "filmInfo";
         }
 
         return "";

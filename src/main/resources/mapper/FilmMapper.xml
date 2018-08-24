@@ -3,23 +3,67 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--定义命名空间-->
 <mapper namespace="com.movie.www.mapper.FilmMapper">
-    <!--id：属性等价于接口中的方法名-->
-    <!--映射文件中的占位符等价于jdbc中sql的占位符 ？,有2种：
-      #{}:以字符串形式输出自动加引号
-      ${}:直接原样输出内容不带引号
-    -->
-    <!--传入参数：
-      parameterType：基本类型(int,double...)或引用类型(java.lang.String,com.qgx.www.entity.Choice)
-      parameterMap：一般单个实体类的属性无法覆盖所有传入参数时，使用Map集合
-    -->
-    <!--输出结果：(使用在查询中)
-      resultType:接收数据库中查询的数据，当数据库中的表字段和实体类属性一致情况下使用
-      resultMap:接收数据库中查询的数据，当数据库中的表字段和实体类属性不一致情况下使用，选择使用映射节点resultMap的id值
-    -->
+    <!--分页列表-->
+    <select id="findListByPage" parameterType="map" resultType="com.movie.www.entity.Film">
+        SELECT * FROM film
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="film.fId!=0 and film.fId!=null and film.fId!=''">AND fId=#{film.fId}</if>
+            <if test="film.fileName!=null and film.fileName!='' and film.fileName!='请输入电影名称'">AND fileName LIKE '%${film.fileName}%' </if>
+            <if test="film.fileTypeList!=null and film.fileTypeList!='' and film.fileTypeList!=0">AND fileTypeList LIKE '%${film.fileTypeList}%'</if>
+            <if test="film.fileTime!=0 and film.fileTime!=null and film.fileTime!=''">AND fileTime=#{film.fileTime}</if>
+            <if test="film.scores!=0 and film.scores!=null and film.scores!=''">AND scores=#{film.scores}</if>
+            <if test="film.releaseDate!=null and film.releaseDate!='' and film.releaseDate!='请输入上映日期'">AND releaseDate=#{film.releaseDate}</if>
+            <if test="film.fileSynopsis!=null and film.fileSynopsis!='' and film.fileSynopsis!='请输入电影简介'">AND fileSynopsis=#{film.fileSynopsis}</if>
+            <if test="film.filePoster!=null and film.filePoster!='' and film.filePoster!='请输入海报地址'">AND filePoster=#{film.filePoster}</if>
+            <if test="film.fileArea!=0 and film.fileArea!=null and film.fileArea!=''">AND fileArea=#{film.fileArea}</if>
+            <if test="film.fileActorList!=null and film.fileActorList!='' and film.fileActorList!='请输入演员'">AND fileActorList LIKE '%${film.fileActorList}%'</if>
+            <if test="film.filePrice!=0 and film.filePrice!=null and film.filePrice!=''">AND filePrice=#{film.filePrice}</if>
+        </trim>
+        limit #{offset},#{limit}
+    </select>
+    <!--总记录数-->
+    <select id="findCount" resultType="int" parameterType="com.movie.www.entity.Film">
+        SELECT count(1) FROM film
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="fId!=0 and fId!=null and fId!=''">AND fId=#{fId}</if>
+            <if test="fileName!=null and fileName!='' and fileName!='请输入电影名称'">AND fileName LIKE '%${fileName}%' </if>
+            <if test="fileTypeList!=null and fileTypeList!='' and fileTypeList!=0">AND fileTypeList LIKE '%${fileTypeList}%'</if>
+            <if test="fileTime!=0 and fileTime!=null and fileTime!=''">AND fileTime=#{fileTime}</if>
+            <if test="scores!=0 and scores!=null and scores!=''">AND scores=#{scores}</if>
+            <if test="releaseDate!=null and releaseDate!='' and releaseDate!='请输入上映日期'">AND releaseDate=#{releaseDate}</if>
+            <if test="fileSynopsis!=null and fileSynopsis!='' and fileSynopsis!='请输入电影简介'">AND fileSynopsis=#{fileSynopsis}</if>
+            <if test="filePoster!=null and filePoster!='' and filePoster!='请输入海报地址'">AND filePoster=#{filePoster}</if>
+            <if test="fileArea!=0 and fileArea!=null and fileArea!=''">AND fileArea=#{fileArea}</if>
+            <if test="fileActorList!=null and fileActorList!='' and fileActorList!='请输入演员'">AND fileActorList LIKE '%${fileActorList}%'</if>
+            <if test="filePrice!=0 and filePrice!=null and filePrice!=''">AND filePrice=#{filePrice}</if>
+        </trim>
+    </select>
+<!--增加-->
+    <insert id="addFilm" parameterType="com.movie.www.entity.Film">
+        INSERT INTO film(fileName,fileTypeList,fileTime,scores,releaseDate,fileSynopsis,filePoster,fileArea,fileActorList,filePrice) VALUES (#{fileName},#{fileTypeList},#{fileTime},#{scores},#{releaseDate},#{fileSynopsis},#{filePoster},#{fileArea},#{fileActorList},#{filePrice})
+    </insert>
+    <!--修改-->
+    <update id="updateFilm" parameterType="com.movie.www.entity.Film">
+        UPDATE film
+        <trim prefix="set" suffixOverrides="," >
+            <if test="fileName!=null and fileName!='' and fileName!='请输入电影名称'"> fileName=#{fileName}, </if>
+            <if test="fileTypeList!=null and fileTypeList!='' and fileTypeList!=0"> fileTypeList=#{fileTypeList}, </if>
+            <if test="fileTime!=0 and fileTime!=null and fileTime!=''"> fileTime=#{fileTime}, </if>
+            <if test="scores!=0 and scores!=null and scores!=''"> scores=#{scores}, </if>
+            <if test="releaseDate!=null and releaseDate!='' and releaseDate!='请输入上映日期'"> releaseDate=#{releaseDate}, </if>
+            <if test="fileSynopsis!=null and fileSynopsis!='' and fileSynopsis!='请输入电影简介'"> fileSynopsis=#{fileSynopsis}, </if>
+            <if test="filePoster!=null and filePoster!='' and filePoster!='请输入海报地址'"> filePoster=#{filePoster}, </if>
+            <if test="fileArea!=0 and fileArea!=null and fileArea!=''"> fileArea=#{fileArea}, </if>
+            <if test="fileActorList!=null and fileActorList!='' and fileActorList!='请输入演员'"> fileActorList=#{fileActorList}, </if>
+            <if test="filePrice!=0 and filePrice!=null and filePrice!=''"> filePrice=#{filePrice}, </if>
+        </trim>
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="fId!=0 and fId!=null and fId!=''">AND fId=#{fId}</if>
+        </trim>
 
-    <!--自定义一个结果类型映射，表名和实体类名映射，表字段和实体类属性映射-->
-
-        <!--属性和表字段映射-->
-
-
+    </update>
+    <!--删除-->
+<delete id="deleteFilm" parameterType="com.movie.www.entity.Film">
+    DELETE FROM film WHERE fId=#{fId}
+</delete>
 </mapper>
