@@ -11,10 +11,12 @@ public class ViewController {
     public String toView(String vn){
        if(vn.equals("userInfo")){
             return "userInfo";
-        }if(vn.equals("addUserInfo")){
-            return "addUserInfo";
         }if(vn.equals("filmInfo")){
             return "filmInfo";
+        }if(vn.equals("platoon")){
+            return "platoon";
+        }if(vn.equals("orderInfo")){
+            return "orderInfo";
         }
 
         return "";

@@ -132,8 +132,8 @@
                 /*cache: false, // 设置为 false 禁用 AJAX 数据缓存， 默认为true*/
                 /*striped: true,  //表格显示条纹，默认为false，各行变色*/
                 pagination: true, // 在表格底部显示分页组件，默认false
-                pageList: [5, 10, 20, 50], // 设置页面可以显示的数据条数
-                pageSize: 5, // 页面数据条数
+                /*pageList: [5, 10, 20, 50], // 设置页面可以显示的数据条数*/
+                pageSize:1, // 页面数据条数
                 pageNumber: 1, // 首页页码
                 sidePagination: 'server', // 设置为服务器端分页
 
