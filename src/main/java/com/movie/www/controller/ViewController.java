@@ -9,14 +9,14 @@ public class ViewController {
 
     @RequestMapping("/toView")
     public String toView(String vn){
-        if(vn.equals("insurance")){
-            return "insurance";
-        }if(vn.equals("userInfo")){
+       if(vn.equals("userInfo")){
             return "userInfo";
-        }else if(vn.equals("selectSeat")){
-            return "selectSeat";
-        }else if(vn.equals("basicInfo")){
-            return "basicInfo";
+        }if(vn.equals("filmInfo")){
+            return "filmInfo";
+        }if(vn.equals("platoon")){
+            return "platoon";
+        }if(vn.equals("orderInfo")){
+            return "orderInfo";
         }
 
         return "";
