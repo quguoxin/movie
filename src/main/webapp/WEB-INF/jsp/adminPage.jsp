@@ -33,7 +33,7 @@
                     <li class="active"><a href="index.html" class="sf-house">Home</a></li>
                     <li><a href="view/userInfo.action?vn=userInfo" target="center_body" class="sf-dashboard">用户管理</a></li>
                     <li><a href="components-text.html" class="sf-brick">影库管理</a></li>
-                    <li><a href="notepad.html" class="sf-notepad">放映安排</a></li>
+                    <li><a href="view/Platoon.action" class="sf-notepad" target="center_body">放映安排</a></li>
                     <li><a href="login.html" class="sf-lock-open">订单详情</a></li>
                 </ul>
             </div>

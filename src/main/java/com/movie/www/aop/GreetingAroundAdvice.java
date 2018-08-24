@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class GreetingAroundAdvice {
     //通过表达式方式设定增强切入点位置，通常是设定业务层com.qgx.www.service
     //第二个*代表：所有类，第三个*代表所有方法，（..）代表任意参数
-    @Around("execution(* com.qgx.www.service.impl.*.getUserInfo(..))")
+    @Around("execution(* com.movie.www.service.impl.*.*(..))")
     public Object around(ProceedingJoinPoint jp){
         Object result=null;
         System.out.println("-----我在前置处理-------");

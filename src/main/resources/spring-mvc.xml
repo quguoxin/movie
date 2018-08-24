@@ -20,7 +20,6 @@
 
     <!-- bean扫描:控制器层，拦截器，aop增强-->
     <context:component-scan base-package="com.movie.www.controller,
-                                          com.movie.www.aop,
                                           com.movie.www.interceptor">
     </context:component-scan>
 
