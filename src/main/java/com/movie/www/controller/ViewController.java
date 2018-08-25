@@ -31,6 +31,16 @@ public class ViewController {
             return "movieInfo";
         }else if(vn.equals("selectSeat")){
             return "selectSeat";
+        }else if(vn.equals("userInfo")){
+            return "userInfo";
+        }else if(vn.equals("filmInfo")){
+            return "filmInfo";
+        }else if(vn.equals("platoon")){
+            return "platoon";
+        }else if(vn.equals("orderInfo")){
+            return "orderInfo";
+        }else if(vn.equals("adminPage")){
+            return "adminPage";
         }
         return "";
     }

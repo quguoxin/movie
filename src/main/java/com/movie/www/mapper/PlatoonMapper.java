@@ -13,4 +13,12 @@ public interface PlatoonMapper {
     public List<PlatoonBean> findPlatoonByParams(int fId);
     public int findCount(PlatoonBean platoonBean);
 
+
+    public int addPlatoon(Platoon platoon);
+    public int findCountForAdmin(Platoon platoon);
+    public List<Platoon> findListByPage(Map<String,Object> map);
+    public int updatePlatoon(Platoon pId);
+
+    int delPlatoon(Platoon platoon);
+
 }

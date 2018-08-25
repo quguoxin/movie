@@ -64,4 +64,35 @@ public class PlatoonServiceImpl implements PlatoonService{
     public int findCount(PlatoonBean platoonBean) {
         return platoonMapper.findCount(platoonBean);
     }
+
+    @Override
+    public int addPlatoon(Platoon platoon) {
+        return platoonMapper.addPlatoon(platoon);
+    }
+    @Override
+    public int findCountForAdmin(Platoon platoon) {
+        return platoonMapper.findCountForAdmin(platoon);
+    }
+
+    @Override
+
+    public List<Platoon> findListByPage(int startIndex, int pageSize, Platoon platoon) {
+        Map<String,Object> map=new HashMap<String, Object>();
+        map.put("startIndex",startIndex);
+        map.put("pageSize",pageSize);
+        map.put("platoon",platoon);
+        List<Platoon> list = platoonMapper.findListByPage(map);
+
+        return list;
+    }
+
+    @Override
+    public int updatePlatoon(Platoon platoon) {
+        return platoonMapper.updatePlatoon(platoon);
+    }
+
+    @Override
+    public int delPlatoon(Platoon platoon) {
+        return platoonMapper.delPlatoon(platoon);
+    }
 }

@@ -24,20 +24,20 @@
     <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
 </head>
 <body>
-<div>
+<div style="width: 1349px;margin: auto">
     <%--导航栏--%>
     <div  style="width: 1349px;height: 80px;clear: both" >
-        <div style="width: 700px;height: 73px;float: left;margin-left: 50px">
-            <ul class="nav nav-pills nav-justified">
-                <li><img style="width: 70px;height: 70px;border-radius: 100%" src="../../imgs/main/20180820202429.png"><font color="red" size="5"><strong>在线影院</strong></font></li>
-                <li><a href="view/toView.action?vn=homePage" target="change" style="color: black"><font size="5"><strong>首 页</strong></font></a></li>
-                <li><a href="view/toView.action?vn=allMovies" target="change" style="color: black"><font size="5"><strong>电 影</strong></font></a></li>
-                <li><a href="view/toView.action?vn=hotplay" target="change" style="color: black"><font size="5"><strong>榜 单</strong></font></a></li>
+        <div style="width: 700px;height: 73px;float: left;margin-left: 80px">
+            <ul class="nav nav-pills nav-justified" style="width: 700px ;height: 73px;" >
+                <li style="height: 70px;width: 170px;float: left"><img style="width: 70px;height: 70px;border-radius: 100%" src="../../imgs/main/20180820202429.png"><font color="red" size="5"><strong>在线影院</strong></font></li>
+                <li style="margin-top: 10px;height: 73px;width: 170px;float: left"><a href="view/toView.action?vn=homePage" target="change" style="color: black"><font size="5"><strong>首 页</strong></font></a></li>
+                <li style="margin-top: 10px;height: 73px;width: 170px;float: left"><a href="view/toView.action?vn=allMovies" target="change" style="color: black"><font size="5"><strong>电 影</strong></font></a></li>
+                <li style="margin-top: 10px;height: 73px;width: 170px;float: left"><a href="view/toView.action?vn=hotplay" target="change" style="color: black"><font size="5"><strong>榜 单</strong></font></a></li>
             </ul>
         </div>
         <div style="width: 300px;float: left;margin-top: 20px;margin-left: 50px">
             <form class="bs-example bs-example-form" role="form">
-                <div class="row">
+                <div class="row" style="width: 280px">
                     <div class="col-lg-6">
                         <div class="input-group">
                             <input id="findFilm" style="width: 200px" type="text" placeholder="请输入电影名！" class="form-control">

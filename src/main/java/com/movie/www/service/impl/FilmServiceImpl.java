@@ -52,7 +52,16 @@ public class FilmServiceImpl implements FilmService {
 
     @Override
     public List<Film> findListByPage(int offset, int limit, Film film) {
-        return null;
+        Map<String,Object> map=new HashMap<>(  );
+        map.put( "offset",offset );
+        map.put( "limit",limit );
+        map.put( "film",film );
+        return filmMapper.findListByPage(map);
+    }
+
+    @Override
+    public int findCountForAdmin(Film film) {
+         return filmMapper.findCountForAdmin(film);
     }
 
     @Override

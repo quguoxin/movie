@@ -19,9 +19,21 @@ public interface  FilmMapper {
     public List<Film> findNewFilm();
 
     Film findFilmByFid(int fId);
+
     List<Film> findFilmByParams(Map<String, Object> map);
 
     List<Film> findFilmById(int fId);
 
     Film findfidByFFileName(String fileName);
+
+
+    int findCountForAdmin(Film film);
+
+    List<Film> findListByPage(Map<String, Object> map);
+
+    int addFilm(Film film);
+
+    int updateFilm(Film film);
+
+    int deleteFilm(int fId );
 }

@@ -4,13 +4,13 @@
 
 <mapper namespace="com.movie.www.mapper.UserInfoMapper">
 
-<select id="findUserByPhoneAndPassword" parameterType="com.movie.www.entity.UserInfo" resultType="com.movie.www.entity.UserInfo" >
-    SELECT *  from userinfo WHERE phone=#{phone} and password=#{password}
-</select>
-<insert id="addUserInfo" parameterType="com.movie.www.entity.UserInfo" >
-INSERT INTO `userinfo` (userName,phone,`password`,portrait) VALUES (#{userName},#{phone},#{password},#{portrait})
-</insert>
-<select id="findUserByPhone" parameterType="com.movie.www.entity.UserInfo" resultType="com.movie.www.entity.UserInfo">
+    <select id="findUserByPhoneAndPassword" parameterType="com.movie.www.entity.UserInfo" resultType="com.movie.www.entity.UserInfo" >
+        SELECT *  from userinfo WHERE phone=#{phone} and password=#{password}
+    </select>
+    <insert id="addUserInfo" parameterType="com.movie.www.entity.UserInfo" >
+    INSERT INTO `userinfo` (userName,phone,`password`,portrait) VALUES (#{userName},#{phone},#{password},#{portrait})
+    </insert>
+    <select id="findUserByPhone" parameterType="com.movie.www.entity.UserInfo" resultType="com.movie.www.entity.UserInfo">
     SELECT *  from userinfo WHERE phone=#{phone}
 </select>
     <update id="updateUserInfoByUid" parameterType="com.movie.www.entity.UserInfo">
@@ -26,4 +26,55 @@ INSERT INTO `userinfo` (userName,phone,`password`,portrait) VALUES (#{userName},
     <select id="findUserInfoByUid" parameterType="com.movie.www.entity.UserInfo" resultType="com.movie.www.entity.UserInfo">
         SELECT *  from userinfo WHERE uId=#{uId}
     </select>
+
+    <select id="findListByPage" parameterType="map" resultType="com.movie.www.entity.UserInfo">
+        SELECT * FROM userinfo
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="userInfo.uId!=null and userInfo.uId!='' and userInfo.uId!=0">AND uId=#{userInfo.uId}</if>
+            <if test="userInfo.userName!=null and userInfo.userName!='' and userInfo.userName!='请输入姓名'">AND userName LIKE '%${userInfo.userName}%'</if>
+            <if test="userInfo.phone!=null and userInfo.phone!='' and userInfo.phone!='请输入电话号码'">AND phone=#{userInfo.phone}</if>
+            <if test="userInfo.birthday!=null and userInfo.birthday!='' and userInfo.birthday!='请输入生日日期'">AND birthday=#{userInfo.birthday}</if>
+            <if test="userInfo.sex!=0 and userInfo.sex!=null and userInfo.sex!=''">AND sex=#{userInfo.sex}</if>
+            <if test="userInfo.password!=null and userInfo.password!='' and userInfo.password!='请输入密码'">AND password=#{userInfo.password}</if>
+        </trim>
+        limit #{offset},#{limit}
+    </select>
+    <!--总记录数-->
+    <select id="findCount" resultType="int" parameterType="com.movie.www.entity.UserInfo">
+        SELECT count(1) FROM userinfo
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="uId!=0 and uId!=null and uId!=''">AND uId=#{uId}</if>
+            <if test="userName!=null and userName!='' and userName!='请输入姓名'">AND userName LIKE '%${userName}%'</if>
+            <if test="phone!=null and phone!='' and phone!='请输入电话号码'">AND phone=#{phone}</if>
+            <if test="birthday!=null and birthday!='' and birthday!='请输入生日日期'">AND birthday=#{birthday}</if>
+            <if test="sex!=0 and sex!=null and sex!=''">AND sex=#{sex}</if>
+            <if test="password!=null and password!='' and password!='请输入密码'">AND password=#{password}</if>
+        </trim>
+    </select>
+    <!--增加-->
+    <insert id="addUser" parameterType="com.movie.www.entity.UserInfo">
+        INSERT INTO userinfo(userName,phone,birthday,sex,password) VALUES (#{userName},#{phone},#{birthday},#{sex},#{password})
+    </insert>
+    <!--修改-->
+    <update id="updateUser" parameterType="com.movie.www.entity.UserInfo" >
+        UPDATE userinfo
+        <trim prefix="set" suffixOverrides="," >
+            <if test="userName!=null and userName!='' and userName!='请输入姓名'">userName=#{userName},</if>
+            <if test="phone!=null and phone!='' and phone!='请输入电话号码'">phone=#{phone},</if>
+            <if test="birthday!=null and birthday!='' and birthday!='请输入生日日期'">birthday=#{birthday},</if>
+            <if test="sex!=0 and sex!=null">sex=#{sex},</if>
+            <if test="password!=null and password!='' and password!='请输入密码'">password=#{password},</if>
+        </trim>
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="uId!=0 and uId!=null and uId!=''">AND uId=#{uId}</if>
+        </trim>
+    </update>
+    <!--删除-->
+    <delete id="deleteUser" parameterType="int">
+        DELETE FROM userinfo WHERE uId=#{uId}
+    </delete>
+
+
+
+
 </mapper>

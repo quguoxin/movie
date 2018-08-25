@@ -17,4 +17,18 @@ public interface UserInfoService {
     public int updateUserInfoByUid(UserInfo userInfo);
     public List<UserInfo> findUserInfoByUid(int uId);
 
+    //分页
+    List<UserInfo> findListByPage(int offset, int limit,UserInfo userInfo);
+
+    int findCount(UserInfo userInfo);
+
+
+    //增加
+    int addUser(UserInfo userInfo);
+    //修改
+    int updateUser(UserInfo userInfo);
+    //删除
+    int deleteUser(int uId);
+
+
 }

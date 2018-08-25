@@ -71,7 +71,7 @@
     </style>
 </head>
 <body>
-<div>
+<div style="width: 1349px">
     <div id="Onefilm">
    <%-- <div style="background-color: #3F3158;width: 1350px;height: 380px">
         <img class="img" src="imgs/movie/18.jpg">

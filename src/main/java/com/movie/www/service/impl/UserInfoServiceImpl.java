@@ -10,7 +10,9 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class UserInfoServiceImpl implements UserInfoService {
@@ -64,4 +66,36 @@ public class UserInfoServiceImpl implements UserInfoService {
     public List<UserInfo> findUserInfoByUid(int uId) {
         return null;
     }
+
+
+    @Override
+    public List<UserInfo> findListByPage(int offset, int limit,UserInfo userInfo) {
+        Map<String, Object> map = new HashMap<>();
+        map.put( "offset", offset );
+        map.put( "limit", limit );
+        map.put( "userInfo",userInfo );
+        return  userInfoMapper.findListByPage(map);
+    }
+
+    @Override
+    public int findCount(UserInfo userInfo) {
+        return userInfoMapper.findCount(userInfo);
+    }
+
+    @Override
+    public int addUser(UserInfo userInfo) {
+        return userInfoMapper.addUser(userInfo);
+    }
+
+    @Override
+    public int updateUser(UserInfo userInfo) {
+        return userInfoMapper.updateUser(userInfo);
+    }
+
+    @Override
+    public int deleteUser(int uId) {
+        return userInfoMapper.deleteUser(uId);
+    }
+
+
 }

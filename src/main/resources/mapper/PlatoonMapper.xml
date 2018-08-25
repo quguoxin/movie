@@ -25,4 +25,50 @@
     </select>
 
     <!---->
+
+    <!--增加排片-->
+    <insert id="addPlatoon" parameterType="com.movie.www.entity.Platoon">
+        INSERT INTO platoon(pId,hallNo,fId,playDate,piayTime)
+        VALUES (#{pId},#{hallNo},#{fId},#{playDate},#{piayTime})
+    </insert>
+    <!--//更新-->
+    <update id="updatePlatoon" parameterType="com.movie.www.entity.Platoon" >
+        UPDATE platoon p
+        <trim prefix="set" suffixOverrides=",">
+            <if test="pId!=null and pId!='' and pId!=0 "> p.pId =#{pId},</if>
+            <if test="hallNo!=null and hallNo!='' and hallNo!=0"> p.hallNo =#{hallNo},</if>
+            <if test="playDate!=null and playDate!='请输入放映日期'">p.playDate =#{playDate},</if>
+            <if test="piayTime!=null and piayTime!='请输入放映时间'">p.piayTime=#{piayTime},</if>
+        </trim>
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="pId!=null">and p.pId =#{pId}</if>
+        </trim>
+    </update>
+    <!--删除-->
+    <delete id="delPlatoon" parameterType="com.movie.www.entity.Platoon">
+        DELETE FROM platoon  WHERE pId=#{pId}
+    </delete>
+    <!--总记录数-->
+    <select id="findCountForAdmin" resultType="int" parameterType="com.movie.www.entity.Platoon">
+        SELECT count(1) FROM platoon p
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="pId!=null and pId!=''and pId!=0 ">and p.pId =#{pId}</if>
+            <if test="hallNo!=null and hallNo!=''and hallNo!=0">and p.hallNo =#{hallNo}</if>
+            <if test="fId!=null and fId!=''and fId!=0">and p.fId =#{fId}</if>
+            <if test="playDate!=null and playDate!='' and playDate!='请输入放映日期'">and p.playDate =#{playDate}</if>
+            <if test="piayTime!=null and piayTime!='' and piayTime!='请输入放映时间'">and p.piayTime =#{piayTime}</if>
+        </trim>
+    </select>
+    <!--分页列表-->
+    <select id="findListByPage" parameterType="map" resultType="com.movie.www.entity.Platoon">
+        SELECT * FROM platoon p
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="platoon.pId!=null and platoon.pId!=''and platoon.pId!=0 ">and p.pId =#{platoon.pId}</if>
+            <if test="platoon.hallNo!=null and platoon.hallNo!=''and platoon.hallNo!=0">and p.hallNo =#{platoon.hallNo}</if>
+            <if test="platoon.fId!=null and platoon.fId!=''and platoon.fId!=0">and p.fId =#{platoon.fId}</if>
+            <if test="platoon.playDate!=null and platoon.playDate!='' and  platoon.playDate!='请输入放映日期'">and p.playDate =#{platoon.playDate}</if>
+            <if test="platoon.piayTime!=null and platoon.piayTime!='' and platoon.piayTime!='请输入放映时间'">and p.piayTime =#{platoon.piayTime}</if>
+        </trim>
+        limit #{startIndex},#{pageSize}
+    </select>
 </mapper>

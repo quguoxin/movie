@@ -15,6 +15,8 @@ public interface FilmService {
 
     List<Film> findListByPage(int offset, int limit, Film film);
 
+    int findCountForAdmin(Film film);
+
     int addFilm(Film film);
 
     int updateFilm(Film film);

@@ -26,7 +26,7 @@
     <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
 </head>
 <body>
-<div style="width: 1366px">
+<div style="width: 1349px">
     <%--轮播--%>
     <div style="width: 1349px;height: 430px;" id="myCarousel" class="carousel slide">
         <!-- 轮播（Carousel）指标 -->
