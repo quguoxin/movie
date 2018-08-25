@@ -69,4 +69,14 @@ public class FilmServiceImpl implements FilmService {
     public int deleteFilm(int fId) {
         return 0;
     }
+
+    @Override
+    public int findfidByFFileName(String fileName) {
+        Film film=filmMapper.findfidByFFileName(fileName);
+        if(film !=null){
+            return film.getfId();
+        }else {
+            return 0;
+        }
+    }
 }

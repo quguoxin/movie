@@ -29,6 +29,8 @@ public class ViewController {
             return "hotplay";
         }else if(vn.equals("movieInfo")){
             return "movieInfo";
+        }else if(vn.equals("selectSeat")){
+            return "selectSeat";
         }
         return "";
     }

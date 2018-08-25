@@ -58,14 +58,4 @@ public class PlatoonBean {
         this.filePrice = filePrice;
     }
 
-    @Override
-    public String toString() {
-        return "PlatoonBean{" +
-                "pId=" + pId +
-                ", playDate='" + playDate + '\'' +
-                ", piayTime='" + piayTime + '\'' +
-                ", hallNo=" + hallNo +
-                ", filePrice=" + filePrice +
-                '}';
-    }
 }

@@ -26,7 +26,7 @@
     <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
 </head>
 <body>
-<div>
+<div style="width: 1366px">
     <%--轮播--%>
     <div style="width: 1349px;height: 430px;" id="myCarousel" class="carousel slide">
         <!-- 轮播（Carousel）指标 -->
@@ -88,6 +88,78 @@
     <%--最受期待--%>
     <div id="zuishouqidai" style="margin-bottom: 50px;margin-left: 100px;float: left;width: 370px;height: 650px">
     </div>
+
+    <%--最新资讯--%>
+    <div style="width: 770px;height: 500px;float: left;margin-left: 70px">
+            <div style="width: 760px;height: 100px;color: #EE4238;font-size: 30px"><br>最新资讯</div>
+            <a href="http://maoyan.com/films/news/46050" target="_blank">
+                <div style="float: left;width:230px;height: 210px;margin-left: 10px">
+                    <img src="../../imgs/main/11111.jpg" alt="通用的占位符缩略图">
+                    <%--<div>--%>
+                    <p>陈可辛又拍短片，网坛名将李娜真实演绎，网友：娜姐美出新高度。</p>
+                    <%-- </div>--%>
+                </div>
+            </a>
+            <a href="http://maoyan.com/films/news/46049" target="_blank">
+                <div style="float: left;width:230px;height: 210px;margin-left: 30px">
+                    <img src="../../imgs/main/222222.jpg" alt="通用的占位符缩略图">
+                    <%--<div>--%>
+                    <p>《喜剧之王》“霞姨”晒珍贵幕后照，星爷搞怪，张柏芝清纯粉嫩。</p>
+                    <%-- </div>--%>
+                </div>
+            </a>
+            <a href="http://maoyan.com/films/news/46048" target="_blank">
+                <div style="float: left;width:230px;height: 210px;margin-left: 30px">
+                    <img src="../../imgs/main/33333.jpg" alt="通用的占位符缩略图">
+                    <%--<div>--%>
+                    <p>戚薇购物清单曝光，矿泉水只买法国进口的，竟是给女儿冲奶粉。</p>
+                    <%-- </div>--%>
+                </div>
+            </a>
+            <a href="http://maoyan.com/films/news/46047" target="_blank">
+                <div style="float: left;width:230px;height: 210px;margin-left: 10px">
+                    <img src="../../imgs/main/44444.jpg" alt="通用的占位符缩略图">
+                    <%--<div>--%>
+                    <p>影后巩俐坐镇今年金马奖评审团主席，章子怡周迅杨幂或将角逐影后。</p>
+                    <%-- </div>--%>
+                </div>
+            </a>
+            <a href="http://maoyan.com/films/news/46046" target="_blank">
+                <div style="float: left;width:230px;height: 210px;margin-left: 30px">
+                    <img src="../../imgs/main/55555.jpg" alt="通用的占位符缩略图">
+                    <%--<div>--%>
+                    <p>卡司公布 | 今日深夜食堂菜单：原来故事里说的都是他们。</p>
+                    <%-- </div>--%>
+                </div>
+            </a>
+            <a href="http://maoyan.com/films/news/46045" target="_blank">
+                <div style="float: left;width:230px;height: 210px;margin-left: 30px">
+                    <img src="../../imgs/main/66666.jpg" alt="通用的占位符缩略图">
+                    <%--<div>--%>
+                    <p>比伯豪掷3千万买房，面积堪比梵蒂冈，还带私人赛马场。</p>
+                    <%-- </div>--%>
+                </div>
+            </a>
+        </div>
+
+    <%--热点资讯--%>
+    <div style="/*border: 1px red solid;*/margin-bottom: 50px;margin-left: 100px;float: left;width: 370px;height: 650px">
+        <div style="width: 370px;height: 100px;color: #EE4238;font-size: 30px">
+            <br>热点资讯
+        </div>
+        <a href="http://maoyan.com/films/news/45861" target="_blank" class="list-group-item">1&nbsp;&nbsp;&nbsp;&nbsp;《古剑奇谭之流月昭明》曝“古剑问道”版预告</a>
+        <a href="http://maoyan.com/films/news/45859" target="_blank" class="list-group-item">2&nbsp;&nbsp;&nbsp;&nbsp;《铁血战士》进军玩具界尽显反差萌，宇宙...</a>
+        <a href="http://maoyan.com/films/news/45874" target="_blank" class="list-group-item">3&nbsp;&nbsp;&nbsp;&nbsp;韩寒晒《飞驰人生》剧照，沈腾赤脚与...</a>
+        <a href="http://maoyan.com/films/news/45858" target="_blank"  class="list-group-item">4&nbsp;&nbsp;&nbsp;&nbsp;《巨齿鲨》全球票房大破3亿美元，夏季看“鲨”...</a>
+        <a href="http://maoyan.com/films/news/45873" target="_blank"  class="list-group-item">5&nbsp;&nbsp;&nbsp;&nbsp;贼喊捉贼？反性侵女星被爆曾性侵未成年男童...</a>
+        <a href="http://maoyan.com/films/news/45872" target="_blank"  class="list-group-item">6&nbsp;&nbsp;&nbsp;&nbsp;《延禧攻略》网络点击量破百亿，于正趁热打...</a>
+        <a href="http://maoyan.com/films/news/45871" target="_blank"  class="list-group-item">7&nbsp;&nbsp;&nbsp;&nbsp;导演韩延张小北力挺《一出好戏》未抄袭，黄渤...</a>
+        <a href="http://maoyan.com/films/news/45934" target="_blank"  class="list-group-item">8&nbsp;&nbsp;&nbsp;&nbsp;印度电影《苏丹》曝同名推广曲MV，那吾克...</a>
+        <a href="http://maoyan.com/films/news/45958" target="_blank"  class="list-group-item">9&nbsp;&nbsp;&nbsp;&nbsp;《蚁人2》彩蛋隐藏重要信息，复联4最大反派竟...</a>
+        <a href="http://maoyan.com/films/news/45965" target="_blank"  class="list-group-item">10&nbsp;&nbsp;&nbsp;&nbsp;澳门赌王妹妹何婉琪病逝，留下百亿遗产，死讯...</a>
+    </div>
+
+
 </div>
 <script src="../../js/jquery-1.11.1.min.js"></script>
 <script src="../../bootstrap-3.3.7-dist/js/bootstrap.js"></script>

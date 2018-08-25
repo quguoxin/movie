@@ -22,4 +22,6 @@ public interface  FilmMapper {
     List<Film> findFilmByParams(Map<String, Object> map);
 
     List<Film> findFilmById(int fId);
+
+    Film findfidByFFileName(String fileName);
 }

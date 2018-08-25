@@ -1,12 +1,34 @@
 package com.movie.www.bean;
 
 public class ApartFilm {
+    private int fId;
     private String filePoster;
     private String fileName;
     private String fileActorList;
     private String releaseDate;
     private double scores;
     private double filePrice;
+
+    public ApartFilm() {
+    }
+
+    public ApartFilm(int fId, String filePoster, String fileName, String fileActorList, String releaseDate, double scores, double filePrice) {
+        this.fId = fId;
+        this.filePoster = filePoster;
+        this.fileName = fileName;
+        this.fileActorList = fileActorList;
+        this.releaseDate = releaseDate;
+        this.scores = scores;
+        this.filePrice = filePrice;
+    }
+
+    public int getfId() {
+        return fId;
+    }
+
+    public void setfId(int fId) {
+        this.fId = fId;
+    }
 
     public String getFilePoster() {
         return filePoster;
@@ -54,30 +76,5 @@ public class ApartFilm {
 
     public void setFilePrice(double filePrice) {
         this.filePrice = filePrice;
-    }
-
-    public ApartFilm(String filePoster, String fileName, String fileActorList,
-                     String releaseDate, double scores, double filePrice) {
-        this.filePoster = filePoster;
-        this.fileName = fileName;
-        this.fileActorList = fileActorList;
-        this.releaseDate = releaseDate;
-        this.scores = scores;
-        this.filePrice = filePrice;
-    }
-
-    public ApartFilm() {
-    }
-
-    @Override
-    public String toString() {
-        return "ApartFilm{" +
-                "filePoster='" + filePoster + '\'' +
-                ", fileName='" + fileName + '\'' +
-                ", fileActorList='" + fileActorList + '\'' +
-                ", releaseDate='" + releaseDate + '\'' +
-                ", scores=" + scores +
-                ", filePrice=" + filePrice +
-                '}';
     }
 }

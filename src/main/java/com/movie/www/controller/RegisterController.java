@@ -27,6 +27,7 @@ public class RegisterController {
     @RequestMapping("/register")
     @ResponseBody
     public MyResponseBody register(UserInfo userInfo, String smsNumber){
+        userInfo.setPortrait("10.jpg");
     MyResponseBody myResponeBody=new MyResponseBody();
     String oldCode= JedisUtil.getInstance().getByKey(userInfo.getPhone()+"-code");
     if (!StringUtils.isNotEmpty(oldCode)){

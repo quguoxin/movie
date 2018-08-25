@@ -8,13 +8,20 @@
     SELECT *  from userinfo WHERE phone=#{phone} and password=#{password}
 </select>
 <insert id="addUserInfo" parameterType="com.movie.www.entity.UserInfo" >
-INSERT INTO `userinfo` (userName,phone,`password`) VALUES (#{userName},#{phone},#{password})
+INSERT INTO `userinfo` (userName,phone,`password`,portrait) VALUES (#{userName},#{phone},#{password},#{portrait})
 </insert>
 <select id="findUserByPhone" parameterType="com.movie.www.entity.UserInfo" resultType="com.movie.www.entity.UserInfo">
     SELECT *  from userinfo WHERE phone=#{phone}
 </select>
     <update id="updateUserInfoByUid" parameterType="com.movie.www.entity.UserInfo">
-        UPDATE `userinfo` u SET u.`userName`=#{userName},u.`sex`=#{sex},u.`birthday`=#{birthday},u.portrait=#{portrait} WHERE u.`uId`=#{uId}
+        UPDATE `userinfo` u
+        <trim prefix="set" suffixOverrides=",">
+            <if test="userName!='' and userName!=null">u.`userName`=#{userName},</if>
+            <if test="sex!=0 ">u.`sex`=#{sex},</if>
+            <if test="birthday!='' and birthday!=null">u.`birthday`=#{birthday},</if>
+            <if test="portrait!='' and portrait!=null">u.portrait=#{portrait},</if>
+        </trim>
+         WHERE u.`uId`=#{uId}
     </update>
     <select id="findUserInfoByUid" parameterType="com.movie.www.entity.UserInfo" resultType="com.movie.www.entity.UserInfo">
         SELECT *  from userinfo WHERE uId=#{uId}

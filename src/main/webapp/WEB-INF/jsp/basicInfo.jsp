@@ -62,8 +62,9 @@
         }
     </style>
 </head>
-<body>
+<body style="background-color: white">
 <div style="width: 963px;height: 500px;margin: 0px auto;border: 1px silver solid;background-color: white">
+
 <div style="color: red;font-size: 25px;height: 80px;margin-top: 15px;text-indent: 40px">基本信息
     <hr style="width: 95.5%;margin-right: 0px;size: 1px">
 </div>
@@ -144,6 +145,7 @@
 
                 }
                 $("#myModal").modal("show");
+
             });
         });
     })

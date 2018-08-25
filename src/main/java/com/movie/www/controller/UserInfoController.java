@@ -33,9 +33,10 @@ public class UserInfoController {
     public MyResponseBody updateUserInfoByUid(UserInfo userInfo, HttpSession session, HttpServletRequest request){
         MyResponseBody myResponeBody=new MyResponseBody();
         int uId= (int) session.getAttribute("uId");
-        //String portrait=(String) session.getAttribute("fileName");
+        String portrait=(String) session.getAttribute("portrait");
+        session.setAttribute("touxiang",portrait);
         //String portrait= (String) request.getAttribute("fileName");
-        userInfo.setPortrait("11.jpg");
+        userInfo.setPortrait(portrait);
         userInfo.setuId(uId);
         int n=userInfoService.updateUserInfoByUid(userInfo);
         if (n>0){

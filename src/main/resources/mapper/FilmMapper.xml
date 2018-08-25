@@ -19,6 +19,10 @@
         SELECT * FROM film WHERE fId=#{fId}
     </select>
 
+    <select id="findfidByFFileName" parameterType="String"  resultType="com.movie.www.entity.Film" >
+        SELECT * FROM film WHERE fileName=#{fileName}
+    </select>
+
     <resultMap id="filmMap" type="com.movie.www.entity.Film">
         <id property="fId" column="fId"></id>
         <result property="fileName" column="fileName"></result>

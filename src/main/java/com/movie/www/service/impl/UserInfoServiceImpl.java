@@ -28,11 +28,12 @@ public class UserInfoServiceImpl implements UserInfoService {
     @Override
     public String findUserByPhoneAndPassword(UserInfo userInfo, HttpSession session) {
         UserInfo userInfo1 = userInfoMapper.findUserByPhoneAndPassword(userInfo);
-        session.setAttribute("uId", userInfo1.getuId());
         if (userInfo1 != null) {
             if (userInfo1.getUserName().equals("admin")) {
                 return "adminPage";
             } else {
+                session.setAttribute("uId", userInfo1.getuId());
+                session.setAttribute("touxiang",userInfo1.getPortrait());
                 return "main";
             }
         }
@@ -56,7 +57,7 @@ public class UserInfoServiceImpl implements UserInfoService {
 
     @Override
     public int updateUserInfoByUid(UserInfo userInfo) {
-        return 0;
+        return userInfoMapper.updateUserInfoByUid(userInfo);
     }
 
     @Override

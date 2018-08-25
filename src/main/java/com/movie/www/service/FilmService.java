@@ -20,4 +20,6 @@ public interface FilmService {
     int updateFilm(Film film);
 
     int deleteFilm(int fId);
+
+    int findfidByFFileName(String fileName);
 }

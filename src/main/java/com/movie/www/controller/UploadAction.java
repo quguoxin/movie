@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
@@ -17,7 +18,7 @@ import java.util.Iterator;
 public class UploadAction {
 
     @RequestMapping(value = "/upload",method = RequestMethod.POST)
-    public String upload(HttpServletRequest request){
+    public String upload(HttpServletRequest request, HttpSession session){
         long startTime = System.currentTimeMillis();
         //将当前上下文初始化给CommonsMultipartResolver解析器
         CommonsMultipartResolver multipartResolver=new CommonsMultipartResolver(request.getServletContext());
@@ -33,8 +34,8 @@ public class UploadAction {
                 MultipartFile multipartFile= multipartHttpServletRequest.getFile(fileName);
                 if(multipartFile!=null&&multipartFile.getSize()>0){
                     //设置目标文件
-
                     request.setAttribute("fileName",multipartFile.getOriginalFilename());
+                    session.setAttribute("portrait",multipartFile.getOriginalFilename());
                     File destFile = new File("D:\\movie\\src\\main\\webapp\\imgs\\touxiang\\"+multipartFile.getOriginalFilename());
                     try {
                         //进行上传

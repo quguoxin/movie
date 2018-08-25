@@ -156,7 +156,7 @@
                           score=obj.scores;
                       }
                       tmp+='<div >用户评分：<span style="font-size: 25px;color: yellow">'+score+'分</span></div>';
-                      tmp+='<a class="a1" href="movieInfo.jsp?fId='+fId+'#tiao">购票选座</a></div></div>';
+                      tmp+='<a class="a1" href="view/toView.action?vn=movieInfo&fId='+fId+'#tiao">购票选座</a></div></div>';
                       tmp+='<div style="width: 740px;float: left;margin-top: 50px;margin-left: 50px" >';
                       tmp+='<h4>剧情简介</h4><p style="font-size: 16px">'+obj.fileSynopsis+'</p></div>';
                   }
@@ -230,7 +230,7 @@
                       align: 'center',
                       valign: 'middle',
                       formatter:function (value,row,index) {
-                          var str='<a id="aaa" href="view/toView?vn=selectSeat&pId='+row.pId+'">选座</a>';
+                          var str='<a id="aaa" href="view/toView.action?vn=selectSeat&pId='+row.pId+'">选座</a>';
                           return str;
 
                       }

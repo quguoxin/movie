@@ -73,6 +73,7 @@
         </div>
         <div class="col-xs-6" >
         <button id="reg" type="button" class="btn btn-block btn-primary" style="width: 300px">注册</button>
+            <a href="login_user.jsp" style="text-decoration: none">已有账号？登录</a>
         </div>
     </form>
 </div>

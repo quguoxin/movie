@@ -27,7 +27,7 @@
 <div>
     <%--导航栏--%>
     <div  style="width: 1349px;height: 80px;clear: both" >
-        <div style="width: 700px;float: left;margin-left: 50px">
+        <div style="width: 700px;height: 73px;float: left;margin-left: 50px">
             <ul class="nav nav-pills nav-justified">
                 <li><img style="width: 70px;height: 70px;border-radius: 100%" src="../../imgs/main/20180820202429.png"><font color="red" size="5"><strong>在线影院</strong></font></li>
                 <li><a href="view/toView.action?vn=homePage" target="change" style="color: black"><font size="5"><strong>首 页</strong></font></a></li>
@@ -51,7 +51,7 @@
         </div>
         <div style="width: 100px;float: left;" class="dropdown">
             <button style="background-color: white" type="button" class="btn dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">
-                <img style="width: 70px;height: 70px;border-radius: 100%" src="imgs/main/22222222222222222222222222.png">
+                <img style="width: 70px;height: 70px;border-radius: 100%" src="../../imgs/touxiang/${touxiang}">
                 <span class="caret"></span>
             </button>
             <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
@@ -70,8 +70,9 @@
 
     <%--跳转部分--%>
     <div>
-        <iframe name="change" src="view/toView.action?vn=homePage" width="100%" height="2000px" frameborder="0" framespacing="0" scrolling="no"></iframe>
+        <iframe name="change" src="view/toView.action?vn=homePage" width="100%" height="2600px" frameborder="0" framespacing="0" scrolling="no"></iframe>
     </div>
+
     <%--尾部--%>
     <div style="text-align: center;background-color: #252325;color: #656565">
         <br><br><br>
@@ -95,14 +96,44 @@
 <script src="bootstrap-3.3.7-dist/bootstrap-table/bootstrap-table-zh-CN.js"></script>
 
 <script>
-    /*$(function () {
+    $(function () {
         $("#gogogo").click(function () {
             var fileName= $("#findFilm").val();
-            $.getJSON("",{"fileName":fileName},function (res) {
+            $.getJSON("findFilm/findFilmByFileName.action",{"fileName":fileName},function (res) {
+                if(res.code==200){
+                    var filmId= res.data;
+                    if(filmId!=0){
+                        window.location="view/toView.action?vn=movieInfo&fId="+filmId;
+                    }else {
+                        $("#myModal .modal-body").html("<span style='color: red'>"+res.msg+"</sapn>");
+                        $("#myModal").modal("show");
+                    }
 
+                }
             })
         })
-    })*/
+    })
+
 </script>
+
+
+
+<%--模态框--%>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">购票</h4>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
 </body>
 </html>
