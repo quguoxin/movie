@@ -19,6 +19,7 @@ public class UploadAction {
 
     @RequestMapping(value = "/upload",method = RequestMethod.POST)
     public String upload(HttpServletRequest request, HttpSession session){
+        String fileName1="";
         long startTime = System.currentTimeMillis();
         //将当前上下文初始化给CommonsMultipartResolver解析器
         CommonsMultipartResolver multipartResolver=new CommonsMultipartResolver(request.getServletContext());
@@ -34,7 +35,7 @@ public class UploadAction {
                 MultipartFile multipartFile= multipartHttpServletRequest.getFile(fileName);
                 if(multipartFile!=null&&multipartFile.getSize()>0){
                     //设置目标文件
-                    request.setAttribute("fileName",multipartFile.getOriginalFilename());
+                    fileName1=multipartFile.getOriginalFilename();
                     session.setAttribute("portrait",multipartFile.getOriginalFilename());
                     File destFile = new File("D:\\movie\\src\\main\\webapp\\imgs\\touxiang\\"+multipartFile.getOriginalFilename());
                     try {
@@ -48,6 +49,7 @@ public class UploadAction {
         }
         long endTime = System.currentTimeMillis();
         System.out.println("使用时间："+(endTime-startTime)+"ms");
+        request.setAttribute("fileName1",fileName1);
         return "basicInfo";
     }
 

@@ -73,7 +73,7 @@
     <%--图片--%>
     <form id="fileForm" enctype="multipart/form-data" method="post" action="upload/upload.action">
      <div style="width: 360px;height: 500px;float: left">
-         <div class="img"><img src="imgs/movie/${fileName}" width="260px" height="260px"> </div>
+         <div class="img"><img src="imgs/movie/${fileName1}" width="260px" height="260px"> </div>
          <div class="divfile">
              <input type="file" id="fileUpload" name="file">
          </div>

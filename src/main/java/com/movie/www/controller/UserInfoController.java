@@ -87,10 +87,10 @@ public class UserInfoController {
         MyResponseBody myResponseBody=new MyResponseBody();
         if(n>0){
             myResponseBody.setCode( 200 );
-            myResponseBody.setMsg( "添加成功" );
+            myResponseBody.setMsg( "修改成功" );
         }else {
             myResponseBody.setCode( -1 );
-            myResponseBody.setMsg( "添加失败" );
+            myResponseBody.setMsg( "修改失败" );
         }
         return myResponseBody;
     }
@@ -103,10 +103,10 @@ public class UserInfoController {
         MyResponseBody myResponseBody = new MyResponseBody();
         if (n > 0) {
             myResponseBody.setCode( 200 );
-            myResponseBody.setMsg( "添加成功" );
+            myResponseBody.setMsg( "删除成功" );
         } else {
             myResponseBody.setCode( -1 );
-            myResponseBody.setMsg( "添加失败" );
+            myResponseBody.setMsg( "删除失败" );
         }
         return myResponseBody;
     }

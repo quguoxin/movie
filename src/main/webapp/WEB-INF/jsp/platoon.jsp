@@ -37,8 +37,8 @@
 
 <form role="form" method="post" id="platoonForm"><a href="/"></a>
     <div class="form-group" >
-        <label for="pId">影片编号</label>
-        <input type="text" class="form-control" id="pId" name="pId" placeholder="请输入影片编号" >
+        <label for="pId">排片编号</label>
+        <input type="text" class="form-control" id="pId" name="pId" placeholder="请输入排片编号" >
     </div>
     <div class="form-group">
         <label for="hallNo">影厅厅号</label>
