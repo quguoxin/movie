@@ -27,8 +27,12 @@
 </head>
 <body class="cm-login">
 
-<div class="text-center" style="padding:90px 0 30px 0;background:#fff;border-bottom:1px solid #ddd">
-    <img src="assets/img/logo-big.svg" width="300" height="45">
+<div class="text-center" style="padding:90px 0 30px 0;background:#262426;border-bottom:1px solid #ddd">
+    <div style="color: red;font-size: 50px;letter-spacing:30px;
+    background: -webkit-gradient(linear,0 0, 0 bottom,from(rgba(255,0,0,1)),to(rgba(0,0,255,1)));
+-webkit-background-clip: text;-webkit-text-fill-color: transparent">
+        爱看不看影院
+    </div>
 </div>
 
 <div class="col-sm-6 col-md-4 col-lg-3" style="margin:40px auto; float:none;">
