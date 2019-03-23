@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--定义命名空间-->
+<mapper namespace="com.movie.www.mapper.OrderMapper">
+
+    <select id="findSeatList" parameterType="int" resultType="com.movie.www.entity.Order" >
+        SELECT *  from `order` WHERE pId=#{pId} AND orderStatus !=3
+    </select>
+
+    <insert id="addOrder" parameterType="com.movie.www.entity.Order">
+        INSERT INTO `order` (`orderNo`,`uId`,`pId`,`seatNo`,`address`,`cinemaName`,`orderStatus`,`orderDate`,`orderPrice`) VALUES (#{orderNo},#{uId},#{pId},#{seatNo},#{address},#{cinemaName},#{orderStatus},#{orderDate},#{orderPrice});
+    </insert>
+
+    <select id="findAllOrderByUid" parameterType="int" resultType="com.movie.www.bean.MyOrderBean">
+        SELECT o.`orderDate` AS orderDate,o.`orderNo` AS orderNo,o.`orderStatus` AS orderStatus,o.`cinemaName` AS cinemaName,
+        o.`seatNo` AS seatNo,o.`orderPrice` AS orderPrice,f.`fileName` AS fileName,f.`filePoster` AS filePoster,p.`hallNo` AS hallNo,
+        p.`piayTime` AS piayTime,p.`playDate` AS playDate
+        FROM  `order` o,`platoon` p,`film` f WHERE o.`pId`=p.`pId` AND p.`fId`=f.`fId` AND o.`uId`=#{uId}
+    </select>
+
+    <update id="updateOrderStatus" parameterType="String">
+        UPDATE `order` SET `orderStatus`= 3 WHERE `orderNo`=#{orderNo}
+    </update>
+
+    <delete id="delOrder" parameterType="String">
+        DELETE FROM `order` WHERE `orderNo`=#{orderNo}
+    </delete>
+
+</mapper>

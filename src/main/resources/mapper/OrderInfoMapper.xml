@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.movie.www.mapper.OrderInfoMapper">
+
+<!--分页列表-->
+    <select id="findListByPage" parameterType="map" resultType="com.movie.www.entity.Order">
+SELECT * FROM `order`
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="order.oid!=null and order.oid!='' and order.oid!=0">AND oid=#{order.oid}</if>
+            <if test="order.orderNo!=null and order.orderNo!=''">AND orderNo=#{order.orderNo}</if>
+            <if test="order.uId!=null and order.uId!='' and order.uId!=0">AND uId=#{order.uId}</if>
+            <if test="order.pId!=null and order.pId!='' and order.pId!=0">AND pId=#{order.pId}</if>
+            <if test="order.seatNo!=null and order.seatNo!=''">AND seatNo=#{order.seatNo}</if>
+            <if test="order.address!=null and order.address!=''">AND address LIKE '%${order.address}%'</if>
+            <if test="order.cinemaName!=null and order.cinemaName!=''">AND cinemaName LIKE '%${order.cinemaName}%'</if>
+            <if test="order.orderStatus!=null and order.orderStatus!='' and order.orderStatus!=0">AND orderStatus=#{order.orderStatus}</if>
+            <if test="order.orderDate!=null and order.orderDate!=''">AND orderDate=#{order.orderDate}</if>
+            <if test="order.orderPrice!=null and order.orderPrice!='' and order.orderPrice!=0">AND orderPrice=#{order.orderPrice}</if>
+        </trim>
+        limit #{offset},#{limit}
+    </select>
+    <!--总记录数-->
+    <select id="findCount" resultType="int" parameterType="com.movie.www.entity.Order">
+        SELECT count(1) FROM `order`
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="oid!=null and oid!='' and oid!=0">AND oid=#{oid}</if>
+            <if test="orderNo!=null and orderNo!=''">AND orderNo=#{orderNo}</if>
+            <if test="uId!=null and uId!='' and uId!=0">AND uId=#{uId}</if>
+            <if test="pId!=null and pId!='' and pId!=0">AND pId=#{pId}</if>
+            <if test="seatNo!=null and seatNo!=''">AND seatNo=#{seatNo}</if>
+            <if test="address!=null and address!=''">AND address LIKE '%${address}%'</if>
+            <if test="cinemaName!=null and cinemaName!=''">AND cinemaName LIKE '%${cinemaName}%'</if>
+            <if test="orderStatus!=null and orderStatus!='' and orderStatus!=0">AND orderStatus=#{orderStatus}</if>
+            <if test="orderDate!=null and orderDate!=''">AND orderDate=#{orderDate}</if>
+            <if test="orderPrice!=null and orderPrice!='' and orderPrice!=0">AND orderPrice=#{orderPrice}</if>
+        </trim>
+    </select>
+
+</mapper>
